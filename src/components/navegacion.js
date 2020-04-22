@@ -16,7 +16,19 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
     color: #FFF;
-`
+    font-weight: 700;
+    font-family: 'PT Sans', sans-serif;
+    text-decoration: none;
+    padding: .5rem;
+    margin-right: 1rem;
+    &:last-of-type {
+        margin-right: 0;
+    }
+    &.pagina-actual {
+        border-bottom: 2px solid #FFF;
+    }
+
+`;
 
 const Navegacion = () => {
     return ( 
@@ -24,11 +36,16 @@ const Navegacion = () => {
         <Nav>
             <NavLink
                 to={'/'}
+                activeClassName="pagina-actual"
             >Inicio</NavLink>
             <NavLink
                 to={'/nosotros'}
+                activeClassName="pagina-actual"
             >Nosotros</NavLink>
-            <NavLink to={'/propiedades'}>Propiedades</NavLink>
+            <NavLink 
+                to={'/propiedades'}
+                activeClassName="pagina-actual"
+            >Propiedades</NavLink>
         </Nav>
 
      );
