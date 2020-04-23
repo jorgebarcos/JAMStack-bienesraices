@@ -1,9 +1,22 @@
 import React from 'react';
+import Iconos from './iconos';
 
 const PropiedadPreview = ({propiedad}) => {
-    const { nombre } = propiedad;
+    const { nombre, descripcion, imagen, wc, estacionamiento, habitaciones, precio } = propiedad;
     return ( 
-        <h3>{nombre}</h3>
+        <div>
+            <div>
+                <h3>{nombre}</h3>
+
+                <p>{precio}</p>
+
+                <Iconos 
+                    wc={wc}
+                    estacionamiento={estacionamiento}
+                    habitaciones={habitaciones}
+                />
+            </div>
+        </div>
      );
 }
  
