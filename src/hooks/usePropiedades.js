@@ -15,7 +15,7 @@ const usePropiedades = () => {
                 categoria {
                     nombre
                 }
-                agentes {
+                agente {
                     nombre
                     telefono
                     email
@@ -31,6 +31,18 @@ const usePropiedades = () => {
         }
     }
     `);
-    console.log(datos);
+    //console.log(datos);
+    return datos.allStrapiPropiedades.nodes.map(propiedad => ({
+        nombre: propiedad.nombre,
+        descripcion: propiedad.descripcion,
+        imagen: propiedad.imagen,
+        id: propiedad.id,
+        wc: propiedad.wc,
+        estacionamiento: propiedad.estacionamiento,
+        habitaciones: propiedad.habitaciones,
+        agentes: propiedad.agente,
+        precio: propiedad.precio,
+        categoria: propiedad.categoria
+    }))
 }
 export default usePropiedades;

@@ -43,6 +43,8 @@ const Index = () => {
             </main>
 
             <Encuentra />
+
+            <ListadoPropiedades />
             
         </Layout>
 
