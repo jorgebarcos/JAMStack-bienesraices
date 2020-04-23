@@ -10,9 +10,13 @@ const useInicio = () => {
                     nombre
                     contenido
                     imagen {
-                    publicURL
+                        sharp: childImageSharp {
+                                fluid( maxWidth: 1200 ) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                }
+                            }
+                        }
                     }
-                }
                 }
             }
           
@@ -20,7 +24,11 @@ const useInicio = () => {
 
     );
 
-    return resultado;
+    return resultado.allStrapiPaginas.nodes.map( inicio => ({
+        nombre: inicio.nombre,
+        contenido: inicio.contenido,
+        imagen: inicio.imagen
+    }));
 }
  
 export default useInicio;
