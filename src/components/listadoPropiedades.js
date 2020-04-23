@@ -1,0 +1,15 @@
+import React from 'react';
+import { css } from '@emotion/core';
+import usePropiedades from '../hooks/usePropiedades';
+
+const ListadoPropiedades = () => {
+
+    const propiedades = usePropiedades();
+    return ( 
+        <h2 css={css `
+            margin-top: 5rem;
+        `}>Nuestras Propiedades</h2>
+     );
+}
+ 
+export default ListadoPropiedades;
