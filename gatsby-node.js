@@ -1,7 +1,14 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createPages = async ({ actions, graphql, reporter }) => {
+    const resultado = await graphql(`
+        query {
+            allStrapiPropiedades {
+            nodes {
+                nombre
+                id
+            }
+            }
+        }
+    `);
 
-// You can delete this file if you're not using it
+    console.log(JSON.stringify(resultado.data.allStrapiPropiedades) );
+}
