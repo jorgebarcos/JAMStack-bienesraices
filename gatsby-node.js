@@ -1,3 +1,5 @@
+const urlSlug = require('url-slug');
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
     const resultado = await graphql(`
         query {
@@ -10,5 +12,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
     `);
 
-    console.log(JSON.stringify(resultado.data.allStrapiPropiedades) );
+    // console.log(JSON.stringify(resultado.data.allStrapiPropiedades) );
+
+    // Si no hay resultados
+    if(resultado.errors) {
+        reporter.panic('No hubo resultados', resultado.errors);
+    }
+
+    // Si hay resultados generar los archivos estaticos
+
+    const propiedades = resultado.data.allStrapiPropiedades.nodes;
+
+    // Crear los templates de propiedades
+    propiedades.forEach (propiedad => {
+        console.log( urlSlug (propiedad.nombre));
+    })
+
 }
