@@ -25,7 +25,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     // Crear los templates de propiedades
     propiedades.forEach (propiedad => {
-        console.log( urlSlug (propiedad.nombre));
+        actions.createPage({
+            path: urlSlug (propiedad.nombre),
+            component: require.resolve('./src/components/propiedades.js')
+        })
     })
 
 }
