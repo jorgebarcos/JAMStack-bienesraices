@@ -16,7 +16,6 @@ const Header = () => {
     
     `);
 
-    console.log(logo);
 
     
       

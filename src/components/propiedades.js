@@ -7,23 +7,41 @@ import { graphql } from 'gatsby'
 
 export const query = graphql`
     query($id: String!) {
-        allStrapiPropiedades( filter: { id: { eq: $id } }) {
-            nodes {
-                nombre
-                estacionamiento
+            allStrapiPropiedades( filter: { id: { eq: $id } }) {
+                nodes {
+                    nombre
+                    descripcion
+                    wc
+                    estacionamiento
+                    habitaciones
+                    precio
+                    agente {
+                        nombre
+                        telefono
+                        email
+                    }
+                    imagen {
+                        sharp: childImageSharp {
+                            fluid ( maxWidth: 700) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                    }
+                }
             }
-        }
     }
 `
 
 
-const Propiedades = ({data}) => {
+    const Propiedades = ({data: { allStrapiPropiedades: { nodes }}}) => {
 
+
+    const { nombre, descripcion, wc, estacionamiento, habitaciones, agente, imagen, precio } = nodes[0]
     
 
     return ( 
         <Layout>
-            <h1>Renzo</h1>
+            <h1>{nombre}</h1>
         </Layout>
      );
 }
