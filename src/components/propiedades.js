@@ -42,6 +42,28 @@ export const query = graphql`
     return ( 
         <Layout>
             <h1>{nombre}</h1>
+            <div>
+                <main>
+                    <Image
+                        fluid={imagen.sharp.fluid}
+                    />
+                    <p>{descripcion}</p>
+                </main>
+                <aside>
+                    <p>$ {precio}</p>
+                    <Iconos
+                    wc={wc}
+                    estacionamiento={estacionamiento}
+                    habitaciones={habitaciones}
+                    />
+                    <div>
+                        <h2>Vendedor:</h2>
+                        <p>{agente.nombre}</p>
+                        <p>Tel: {agente.telefono}</p>
+                        <p>Email: {agente.email}</p>
+                    </div>
+                </aside>
+            </div>
         </Layout>
      );
 }
