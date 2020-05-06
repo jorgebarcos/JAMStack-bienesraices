@@ -11,7 +11,7 @@ const ListadoPropiedades = () => {
     const [propiedades, guardarPropiedades] = useState([]);
 
     // Filtrado de propiedades
-    const { FiltroUI } = useFiltro();
+    const { categoria, FiltroUI } = useFiltro();
 
     useEffect(() => {
         guardarPropiedades(resultado);

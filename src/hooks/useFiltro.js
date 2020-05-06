@@ -22,6 +22,8 @@ const Select = styled.select`
 
 const  useFiltro = () => {
 
+    const [ categoria, guardarCategoria ] = useSTate('');
+
     const resultado = useStaticQuery(graphql`
     query {
         allStrapiCategorias {
@@ -37,7 +39,10 @@ const  useFiltro = () => {
 
     const FiltroUI = () => (
         <Formulario>
-            <Select>
+            <Select
+                onChange= {e => guardarCategoria(e.target.value)}
+                value={categoria}
+            >
                 <option value="">-- Filtrar --</option>
                 {categorias.map(opcion => (
                     <option key={opcion.id} value={opcion.nombre}>{opcion.nombre}</option>
@@ -47,7 +52,9 @@ const  useFiltro = () => {
     )
 
     return {
+        categoria,
         FiltroUI
+
     }
 }
 
