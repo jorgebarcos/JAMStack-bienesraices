@@ -21,7 +21,7 @@ const ListadoPropiedades = () => {
         } else {
             guardarFiltradas(propiedades);
         }
-    }, [categoria])
+    }, [categoria, propiedades])
     
 
     //console.log(propiedades)
