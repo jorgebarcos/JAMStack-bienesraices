@@ -22,7 +22,7 @@ const Select = styled.select`
 
 const  useFiltro = () => {
 
-    const [ categoria, guardarCategoria ] = useSTate('');
+    const [ categoria, guardarCategoria ] = useState('');
 
     const resultado = useStaticQuery(graphql`
     query {
